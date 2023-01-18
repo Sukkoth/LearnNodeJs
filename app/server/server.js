@@ -1,40 +1,31 @@
-const http = require('http');
+const express = require('express');
 const fs = require('fs');
-const PORT = 8080;
+const app = express();
+const PORT = 3000;
 
-http.createServer((req, res) => {
-    let view = "././resources/views/";
 
-    switch (req.url) {
-        case "/":
-            view+="index.html";
-            break;
-        case "/about":
-            view+="about.html";
-            break;
-        default:
-            view+="404.html";
-            break;
-    }
-
-    res.setHeader('Content-type', 'text/html');
-    fs.readFile(view, (error, pageView)=>{
+app.get('/', (req, res)=>{
+    fs.readFile('././resources/views/index.html', (error, returnView)=>{
         if(error){
-            fs.readFile("././resources/views/500.html", (error, serverErrorPage)=>{
-                res.statusCode = 500;
-                if(error){
-                    console.log("Error reading 500.html file");
-                    res.end("Server Error");
-                }
-                else res.end(serverErrorPage);
-            });
+            res.end("Server Error");
         }
         else{
-            res.statusCode = 200;
-            res.end(pageView);
+            res.end(returnView);
         }
     })
+})
 
-}).listen(PORT, ()=>{
-    console.log(`Server started on port ${PORT}.`);
-});
+app.get('/about', (req, res)=>{
+    fs.readFile('././resources/views/about.html', (error, returnView)=>{
+        if(error){
+            res.end("Server Error");
+        }
+        else{
+            res.end(returnView);
+        }
+    })
+})
+
+app.listen(PORT, ()=>{
+    console.log(`Server started on port ${PORT}`);
+})
