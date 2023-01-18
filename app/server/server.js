@@ -13,7 +13,7 @@ app.get('/', (req, res)=>{
             res.end(returnView);
         }
     })
-})
+});
 
 app.get('/about', (req, res)=>{
     fs.readFile('././resources/views/about.html', (error, returnView)=>{
@@ -24,7 +24,11 @@ app.get('/about', (req, res)=>{
             res.end(returnView);
         }
     })
-})
+});
+
+app.get('/user/:user_name', (req, res) => {
+    res.send(req.params.user_name);
+});
 
 app.listen(PORT, ()=>{
     console.log(`Server started on port ${PORT}`);
