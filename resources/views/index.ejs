@@ -9,20 +9,18 @@
 </head>
 <body>    
     <div class="container"">
-      
-       <%- include('./partials/nav.ejs')  %>  
-
+        <%- include('./partials/nav.ejs') %> 
           <div class="blog-content">
             <h1 class="text text-primary mb-5">All Blogs</h1>
 
-                <% blogs.forEach(blog => { %>
+               
                   <div class="card mb-4">
                     <div class="card-body">
-                  <h5 class="card-title m-2 text-success"> <%= blog.title %>  </h5>
-                  <p class="card-text m-3"> <%= blog.text %>  </p>  
+                  <h5 class="card-title m-2 text-success"> blog.title   </h5>
+                  <p class="card-text m-3"> blog.text  </p>  
                 </div>
               </div>
-                <% }) %>
+              
                 
           </div>
     </div>
