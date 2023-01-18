@@ -1,6 +1,6 @@
 const express = require('express');
-const ejs = require('ejs');
 const app = express();
+var blogs = require('../../resources/data/blogs');
 
 const _PORT = 3000;
 
@@ -9,7 +9,7 @@ app.set('view engine', 'ejs');
 app.set('views', 'resources/views');
 
 app.get('/', (req, res)=>{
-    res.render('index', {title: 'Home'});
+    res.render('index', {title: 'Home', blogs});
 });
 
 app.get('/about', (req, res)=>{
