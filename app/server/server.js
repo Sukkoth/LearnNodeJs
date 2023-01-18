@@ -11,16 +11,22 @@ const _PORT = 3000;
 
 //  Homepage
 app.get('/', (req, res)=>{
-    res.render('index');
+    const blogs = [
+        {title: "The dark knight", text:"Lorem ipsum dolor sit amet consectetur adipisicing elit. Minima quo obcaecati sunt, ad laboriosam aliquid molestiae alias asperiores adipisci libero accusamus dicta architecto, id quia ratione maxime provident, laborum iste. Quaerat reiciendis exercitationem omnis maiores repellat non maxime dolorum cupiditate,"},
+        {title: "Up and Down in the sky", text: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Minima quo obcaecati sunt, ad laboriosam aliquid molestiae alias asperiores adipisci libero accusamus dicta architecto, id quia ratione maxime provident, laborum iste.Quaerat reiciendis exercitationem omnis maiores repellat non maxime dolorum cupiditate,"},
+        {title: "The love and the poison", text: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Minima quo obcaecati sunt, ad laboriosam aliquid molestiae alias asperiores adipisci libero accusamus dicta architecto, id quia ratione maxime provident, laborum iste.Quaerat reiciendis exercitationem omnis maiores repellat non maxime dolorum cupiditate,"},
+        {title: "Me, myself and mine", text: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Minima quo obcaecati sunt, ad laboriosam aliquid molestiae alias asperiores adipisci libero accusamus dicta architecto, id quia ratione maxime provident, laborum iste.Quaerat reiciendis exercitationem omnis maiores repellat non maxime dolorum cupiditate,"}
+    ]
+    res.render('index', {title: 'Home', blogs:blogs});
 });
 
 //  About page
 app.get('/about', (req, res)=>{
-    res.render('about');
+    res.render('about', {title: 'About'});
 });
 
 app.get('/blogs/create', (req, res)=>{
-    res.render('create');
+    res.render('create', {title: 'Create'});
 })
 
 //  login page
@@ -36,7 +42,7 @@ app.post('/login', (req, res) => {
 
 //  Incase user inputs unknown routes, 404 page is shown
 app.use((req, res)=>{
-    res.status(404).render('404');
+    res.status(404).render('404', {title: '404'});
 });
 
 //  Starts the server on port @var _PORT
