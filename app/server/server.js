@@ -1,8 +1,9 @@
 const express = require('express');
 const app = express();
-var blogs = require('../../resources/data/blogs');
-
 const _PORT = 3000;
+
+
+var blogs = require('../../resources/data/blogs');
 
 //  Register ejs and it's location for view files
 app.set('view engine', 'ejs');
