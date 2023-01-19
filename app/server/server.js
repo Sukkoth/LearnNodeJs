@@ -8,9 +8,10 @@ var blogs = require('../../resources/data/blogs');
 //  Register ejs and it's location for view files
 app.set('view engine', 'ejs');
 app.set('views', 'resources/views');
+app.use(express.static('public')); //serve static files
 
 app.get('/', (req, res)=>{
-    res.render('index', {title: 'Home', blogs});
+    res.render('blog/index', {title: 'Home', blogs});
 });
 
 app.get('/about', (req, res)=>{
@@ -18,7 +19,7 @@ app.get('/about', (req, res)=>{
 });
 
 app.get('/blogs/create', (req, res)=>{
-    res.render('create', {title: 'Create'});
+    res.render('blog/create', {title: 'Create'});
 });
 
 app.use((req, res)=>{
