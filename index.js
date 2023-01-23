@@ -20,7 +20,7 @@ app.get('/about', (req, res) => {
     res.render('about', { title: "About" });
 });
 
-app.use('/blogs', require('./routes/blog/blogRoutes'));
+app.use('/blogs', require('./routes/blog'));
 
 app.use((req, res) => {
     res.render('404', { title: "404" });
