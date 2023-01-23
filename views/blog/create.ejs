@@ -8,15 +8,22 @@
 
         <h1 class="text text-primary mb-5">Create new blog</h1>
 
-        <form action="/blogs/store" method="POST">
-          <div class="mb-3">
+        <form action="/blogs/store" method="POST" style="margin-left: 20%;">
+          <div class="mb-4">
             <label for="title" class="form-label">Blog title</label>
-            <input type="text" class="form-control w-50" id="title" name="title" placeholder="blog title . . . "
+            <input type="text" class="form-control w-75" id="title" name="title" placeholder="blog title . . . "
               required>
           </div>
-          <div class="mb-3">
+
+          <div class="mb-4">
+            <label for="sub_title" class="form-label">Blog subtitle</label>
+            <input type="text" class="form-control w-75" id="sub_title" name="sub_title" placeholder="blog sub title . . . "
+              required>
+          </div>
+
+          <div class="mb-4">
             <label for="text" class="form-label">Blog text</label>
-            <textarea class="form-control w-50" id="text" rows="3" name="text" required></textarea>
+            <textarea class="form-control w-75" id="text" rows="3" name="text" required></textarea>
           </div>
           <div class="mb-3">
             <button class="btn btn-primary">Submit</button>

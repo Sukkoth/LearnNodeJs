@@ -18,11 +18,8 @@
                                     <%= blogs[blog].text %>
                                 </p>
                                 <div class="d-flex flex-row justify-content-between">
-                                    <h6 class="card-subtitle">
-                                        <form action="/blogs/<%= blog  %> /delete" method="POST"><button
-                                                class="btn btn-danger">Delete</button></form>
-                                    </h6>
-                                    <a href="/blogs/<%= blog %>/edit" class="btn btn-info">Edit</a>
+                                    <p></p>
+                                    <a href="/blogs/show/<%= blogs[blog]._id %>" class="btn btn-info">View</a>
                                 </div>
                             </div>
                         </div>
